@@ -3,6 +3,77 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#define MAXSIZE 2000  
 using namespace std;
 
-int Compare
+typedef struct  PixInfo
+{
+  int pos;
+  int code;
+}Pix;
+
+Pix inMap[MAXSIZE];
+Pix outMap[8*MAXSIZE];
+
+void Sort(int size);
+int GetVal(int pos);
+int GetCode(int pos);
+void CalOutMap(int size, int width);
+
+int main()
+{
+  int size = 0;
+  int width;
+  int pair_c, pair_n;
+
+  while(cin >> width && width)
+    {
+      while(cin >> pair_c >> pair_n && pair_n)
+	{
+	  inMap[size].code = pair_c;
+	  inMap[size].pos = pair_n;
+	  size++;
+	}
+
+      CalOutMap(size, width);
+      cout << width << endl;
+      size = 0;
+    }
+  
+  return 0;
+}
+
+void Sort(int size)
+{
+}
+
+int GetVal(int pos)
+{
+}
+
+int GetCode(int pos)
+{
+}
+
+void CalOutMap(int size, int width)
+{
+  int row, col;
+  int tpos = 0;
+  int k = 0;
+
+  while(tpos < size)
+    {
+      row = tpos/width;
+      col = tpos%width;
+
+      for(int i = row-1; i <= row+1; i++)
+	for(int j = col-1; j <= col+1; j++)
+	  {
+	    if(i < 0 || j < 0 || i >= size/width || j >= width)
+	      continue;
+
+	    
+	  }
+    }
+}
+
